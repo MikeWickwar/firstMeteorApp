@@ -7,18 +7,28 @@
     <header>
       <h1>Monthly Resolutions</h1>
 
+      <label class="hide-finished"> Hide Finished
+        <input type="checkbox" checked="{{hideFinished}}">
+      </label>
+
+      {{#if currentUser}}
       <form class="new-resolution">
         <input type="text" name="title" placeholder="A new resolution">
         <input type="submit" name="Submit">
       </form>
+      {{/if}}
     </header>
     {{#each resolutions}}
     {{> resolution}}
     {{/each}}
-
   </div>
+  {{> loginButtons}}
 </body>
 
 <template name="resolution">
-  <li>{{title}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+    <span class="text">{{title}}</span>
+    <button type="button" class="delete">Remove</button>
+  </li>
 </template>
