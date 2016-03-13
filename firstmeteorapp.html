@@ -1,0 +1,24 @@
+<head>
+  <title>firstmeteorapp</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Monthly Resolutions</h1>
+
+      <form class="new-resolution">
+        <input type="text" name="title" placeholder="A new resolution">
+        <input type="submit" name="Submit">
+      </form>
+    </header>
+    {{#each resolutions}}
+    {{> resolution}}
+    {{/each}}
+
+  </div>
+</body>
+
+<template name="resolution">
+  <li>{{title}}</li>
+</template>
